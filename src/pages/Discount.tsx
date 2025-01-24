@@ -7,11 +7,9 @@ import { Link } from "react-router-dom";
 import { Column } from "react-table";
 import AdminSidebar from "../components/admin/AdminSidebar";
 import TableHOC from "../components/admin/TableHOC";
+import { useCouponQuery } from "../redux/api/paymentAPI";
 import { setIsDashboardDrawer } from "../redux/reducer/miscSlice";
 import { RootState } from "../redux/store";
-import { customError } from "../types/api-types";
-import { useCouponQuery } from "../redux/api/paymentAPI";
-import toast from "react-hot-toast";
 
 interface DataType {
   code: string;
@@ -45,7 +43,7 @@ const Discount = () => {
   const { isDashboardDrawer } = useSelector((state: RootState) => state.misc);
   const { user } = useSelector((state: RootState) => state.userReducer);
 
-  const { data, isLoading, isError, error } = useCouponQuery(user?._id!);
+  const { data, isLoading} = useCouponQuery(user?._id!);
 
   const userImg =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp";
