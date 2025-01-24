@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 
-import hero from "../assets/images/hero.webp";
-import hero2 from "../assets/images/hero2.webp";
-import hero3 from "../assets/images/hero3.webp";
-import hero4 from "../assets/images/hero4.webp";
-import hero5 from "../assets/images/hero5.webp";
-import hero6 from "../assets/images/hero6.webp";
 import { ArrowLeft, ArrowRight } from "react-feather";
 
-const carouselImages = [hero, hero3, hero4, hero5, hero6, hero2];
+const carouselImages = [
+  "https://res.cloudinary.com/dtjfmg11y/image/upload/v1737743951/hero_mogjy2.jpg",
+  "https://res.cloudinary.com/dtjfmg11y/image/upload/v1737743950/hero5_tljywh.jpg",
+  "https://res.cloudinary.com/dtjfmg11y/image/upload/v1737743950/hero3_lo57jf.jpg",
+  "https://res.cloudinary.com/dtjfmg11y/image/upload/v1737743955/hero6_iskgme.jpg",
+  "https://res.cloudinary.com/dtjfmg11y/image/upload/v1737743957/hero2_ysjift.jpg",
+  "https://res.cloudinary.com/dtjfmg11y/image/upload/v1737743960/hero4_rrton3.jpg",
+];
 
 const Carousal = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
