@@ -1,0 +1,35 @@
+@media screen and (width<= 768px) {
+  .cart {
+    display: block;
+    padding: 1rem;
+
+    > main {
+      width: 100%;
+    }
+    > aside {
+      width: 100%;
+      padding: 2rem 0;
+    }
+  }
+
+ 
+
+  .product-search-page {
+    display: block;
+    padding: 0;
+
+    > aside {
+      @include flex(row, space-between, center);
+      flex-wrap: wrap;
+      box-shadow: none;
+      > h2 {
+        @include heading;
+        font-size: 1.2rem;
+      }
+    }
+    > main > input {
+      width: 100%;
+      border: 1px solid rgba(212, 212, 212, 0.379);
+    }
+  }
+}

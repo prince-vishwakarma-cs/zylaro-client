@@ -1,0 +1,55 @@
+.shipping{
+  @include flex;
+
+  .back{
+    @include square(2.5rem);
+    background-color: $color2;
+    color: $colorl;
+    @include flex;
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    border-radius: 100%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    @include baseShadow;
+
+    svg{
+        transition: all 0.3s;
+    }
+
+    &:hover svg{
+        translate: -0.25rem;
+    }
+  }
+
+  >form{
+    max-width: 450px;
+    width: 100%;
+    @include flex(column,ceenter,stretch,1.5rem);
+
+
+    >h1{
+        @include heading;
+        margin: 2rem;
+        text-align: center;
+    }
+
+    >input,>select{
+        @include inputStyle(100%,1rem,inherit,1px solid rgba(31,31,31,0.351));
+        border-radius: 5px;
+        outline: none;
+    }
+
+    >button{
+        @include btn(1rem,$color3,$colorl);
+        font-size: 1.05rem;
+        text-transform: uppercase;
+        border-radius: 5px;
+        &:hover{
+            opacity: 0.8;
+        }
+    }
+  }
+}

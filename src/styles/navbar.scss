@@ -1,0 +1,186 @@
+.nav-header {
+  padding: 0.75rem;
+  background-color: white;
+  transition: all 0.7s ease;
+  max-height: 79.2px;
+  position: relative;
+
+  z-index: 9999;
+  border-bottom: 0.05rem solid var(--black-40);
+
+  &.open {
+    height: 100vh;
+    max-height: 100vh; // A large value to ensure it opens fully
+    overflow-y: auto;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    >.active{
+        color: $green;
+      }
+    }
+
+  &__menu {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .link-contain{
+    height: 2.25rem;
+    width: 2.25rem;
+    cursor: pointer;;
+    padding: 0.2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: var(--black-10);
+    }
+  }
+  .link-icons {
+    @include flex(row, flex-end, center, 1.5rem);
+    .active {
+      color: $green;
+    }
+
+    a {
+      color: var(--black-100);
+
+      &:hover {
+        color: var(--black-100);
+      }
+    }
+  }
+  .nav-header__icon-close {
+    align-items: center;
+    cursor: pointer;
+  }
+
+  dialog {
+    margin-right: 1rem;
+    position: absolute;
+    top: calc(100% + 0.05rem); /* Adjust as per your button size */
+    left: calc(-8rem + 100vw - 1rem);
+    width: 8rem; /* Set the desired width */
+    border: 1px solid #eaeaea;
+    padding: 0.25rem;
+    background-color: white;
+    border-radius: 0.25rem;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 10000;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.25rem;
+
+      >div:hover{
+        color:red;
+      }
+    }
+  }
+  button {
+    position: relative;
+  }
+}
+
+.no-decor {
+  border: none;
+  background: none;
+  position: relative;
+}
+
+.cursor{
+  cursor: pointer;
+}
+
+.drawer-icon{
+  display: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.nav-header {
+  transition: transform 0.3s ease;
+}
+
+.nav-header.hidden {
+  transform: translateY(-100%); // Hide navbar by shifting it out of view
+}
+
+.nav-header.visible {
+  transform: translateY(0); // Show navbar by returning to normal position
+}
+
+@media (max-width: 768px) {
+  .nav-user,
+  .nav-cart,
+  .nav-search {
+    pointer-events: none;
+    >svg{
+      display: none;
+    }
+  }
+}
+
+
+.hover-black{
+  width: 100%;
+  text-align: center;
+  padding: 4px;
+  border-radius: 0.25rem;
+  &:hover{
+    background-color: var(--black-10);
+  }
+}
+
+.dashboard-links{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  list-style: none;
+  padding: 0.5rem;
+  gap: 1rem;
+  font-weight: 700;
+  >li{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    >div{
+      font-size: 1.2rem;
+      margin-bottom: 0.25rem;
+    }
+
+    >a{
+      font-size: 1rem;
+    }
+  
+  }
+  >li>a:hover{
+    color: $green;
+  }
+}
+
+@media (max-width:768px){
+  .drawer-icon{
+    display: block;
+  }
+}

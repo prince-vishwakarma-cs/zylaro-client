@@ -1,0 +1,38 @@
+.chart-container {
+  background-color: var(--white-100);
+  color: var(--black-100);
+  padding: 4rem;
+  overflow-y: auto;
+  width: calc(100vw - 20rem);
+
+  > h1 {
+    margin: 0 0 5rem 0rem;
+  }
+
+  > section {
+    width: 100%;       // Expand sections to full width for better alignment
+    margin: 4rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > div {
+      max-width: 50rem; // Adjust size for better visualization
+      margin-top: 6rem;
+      margin-bottom: -1rem;
+    }
+
+    > h2 {
+      margin: 2rem 0;
+      text-align: center;
+      @include heading(2px);
+    }
+  }
+}
+
+
+@media (max-width:768px){
+  .chart-container{
+    width: 100vw;
+  }
+}

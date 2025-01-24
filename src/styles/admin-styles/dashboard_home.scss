@@ -1,0 +1,237 @@
+.dashboard {
+    overflow-y: auto;
+    background-color: var(--white-100);
+    width: calc(100vw - 20rem);
+    color: var(--black-100);
+  
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--black-40);
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background-color:var(--black-100);
+    }
+  
+    &::-webkit-scrollbar-track {
+      background-color: var(--white-100);
+    }
+  
+    // .bar {
+    //   width: 100vw;
+    //   height: 4rem;
+    //   @include flex(row, space-between, center);
+    //   padding: 0 1rem;
+    //   border-bottom: 1px solid var(--black-10);
+    //   > div {
+    //     @include flex(row, unset, center);
+    //   }
+    //   .input-dash {
+    //     background-color: var(--black-5);
+    //     padding: 0 1rem;
+    //     border-radius: $border-radius;
+  
+    //     > input {
+    //       @include inputStyle(100%, 1rem 0);
+    //       width: 12rem;
+    //       background-color: transparent;
+    //       color: var(--black-20);
+    //     }
+  
+    //     > svg {
+    //       color: var(--black-40);
+    //     }
+    //   }
+    //   .info-dash {
+    //     > svg {
+    //       font-size: 1.2rem;
+    //       color: var(--black-40);
+    //     }
+    //     > img {
+    //       @include square(2rem);
+    //       border-radius: 50%;
+    //     }
+    //   }
+    // }
+  
+    .widgets-dash {
+      @include flex(column, flex-start, flex-start,0);
+      padding: 2rem 2rem 2rem 2rem;
+      width: 100%;
+      .widget-container {
+        width: 100%;
+        @include flex(row, space-between, stretch, 1.5rem);
+        flex-wrap: wrap;
+        .widget {
+          flex-grow: 1;
+          width: 16rem;
+          background-color: var(--white-100);
+          padding: 2rem;
+          border-radius: 10px;
+          @include flex(row, space-between, stretch, 0);
+    
+          .widget-info {
+            > p {
+              opacity: 0.7;
+              font-size: 0.8rem;
+            }
+            > h4 {
+              font-size: 1.5rem;
+            }
+            > span {
+              @include flex(row, unset, center, 0.2rem);
+            }
+          }
+    
+          .widget-circle {
+            position: relative;
+            @include square(5rem);
+            border-radius: 50%;
+            flex: none;
+            display: grid;
+            place-items: center;
+            &::before {
+              content: "";
+              position: absolute;
+              @include square(4rem);
+              background-color: var(--primary-blue);
+              border-radius: 100%;
+            }
+            span {
+              position: relative;
+            }
+          }
+    
+        }
+        .widget:nth-child(2) .widget-circle::before {
+          background-color: var(--primary-purple);  // Change for second widget
+        }
+        .widget:nth-child(4) .widget-circle::before {
+          background-color: var(--primary-purple);  // Change for second widget
+        }
+      }
+    }
+  
+  
+    .graph-container {
+      @include flex(row, space-between, stretch, 2rem);
+      padding: 0 2rem;
+      flex-wrap: wrap;
+      width: 100%;
+
+      > div {
+        flex-grow: 1;
+        border-radius: 10px;
+        max-width: 100%;
+        background-color: var(--primary-light);
+      }
+  
+      .revenue-chart {
+        color: var(--black-100);
+        padding: 1rem 2rem;
+        max-width: min(45rem,100%);
+      }
+  
+      .dashboard-categories {
+        @include flex(column, flex-start, unset, 0);
+        padding: 1rem 2rem;
+  
+        > div {
+          color: var(--black-100);
+          overflow-y: auto;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
+  
+        .category-item {
+          max-width: 100%;
+          @include flex(row, space-between);
+          padding: 1rem 0;
+          > h5 {
+            font-weight: 400;
+            text-transform: capitalize;
+          }
+          > div {
+            margin-left: auto;
+            width: 8rem;
+            background-color: var(--black-10);
+            border-radius: 20px;
+            height: 0.5rem;
+            flex: none;
+            > div {
+              border-radius: 20px;
+              height: 100%;
+            }
+          }
+          > span {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  
+    .transaction-container {
+      @include flex(row,space-between,stretch,1.5rem);
+      flex-wrap: wrap;
+      padding: 2rem 2rem;
+  
+      > div {
+        background-color: var(--primary-light);
+        border-radius: 10px;
+        flex-grow: 1;
+      }
+      .gender-chart {
+        position: relative;
+        max-width: min(20rem,100%);
+
+        > h2 {
+          padding: 2rem;
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: var(--black-100)
+        }
+        > p {
+          @include posCenter;
+          font-size: 2rem;
+          color: var(--black-40);
+        }
+      }
+  
+      .transaction-box {
+        padding: 2rem;
+        width: 100%;
+        overflow-x: auto;
+
+        &::-webkit-scrollbar {
+          width: 6px;
+          height: 6px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: var(--black-40);
+          border-radius: 10px;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+          background-color:var(--black-100);
+        }
+      
+        &::-webkit-scrollbar-track {
+          background-color: var(--white-100);
+        }
+        > h2 {
+          margin: 1.5rem 0 0 0;
+          @include heading;
+        }
+      }
+    }
+  }
+
+@media (max-width:768px){
+  .dashboard{
+    width: 100vw;
+  }
+}
+  

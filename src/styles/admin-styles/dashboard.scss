@@ -1,0 +1,167 @@
+.admin-container {
+  display: flex;
+  height: calc(100vh - 3.8rem);
+  background-color: var(--white-100);
+  > aside {
+    border-right: var(--black-10) 1px solid;
+    background-color: var(--white-100);
+    color: var(--black-100);
+    padding: 0.5rem;
+    width: 20rem;
+    overflow-y: hidden;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    > div {
+      margin: 2rem 1rem;
+      > h5 {
+        font-weight: 400;
+        font-size: 1.1rem;
+        color: var(--black-40);
+        margin: 1rem 0;
+      }
+      > ul {
+        @include flex(column, unset, unset, 0.5rem);
+        list-style: none;
+        > li {
+          padding: 0.5rem 1rem;
+          border-radius: 10px;
+
+          a {
+            color: var(--black-100);
+            @include flex(row, unset);
+          }
+
+          &:hover {
+            background-color: var(--black-5);
+            a {
+              margin-left: 0.25rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+
+.bar {
+  height: 4rem;
+  @include flex(row, space-between, center);
+  padding: 0 1rem;
+  width: 100%;
+  border-bottom: 1px solid var(--black-10);
+  display: none;
+  > div {
+    @include flex(row, unset, center);
+  }
+  .input-dash {
+    background-color: var(--black-5);
+    padding: 0 1rem;
+    border-radius: $border-radius;
+
+    > input {
+      @include inputStyle(100%, 1rem 0);
+      width: 12rem;
+      background-color: transparent;
+      color: var(--black-20);
+    }
+
+    > svg {
+      color: var(--black-40);
+    }
+  }
+  .info-dash {
+    > svg {
+      font-size: 1.2rem;
+      color: var(--black-40);
+    }
+    > img {
+      @include square(2rem);
+      border-radius: 50%;
+    }
+  }
+}
+
+// @media screen and (width<= 1200px) {
+//   .admin-container {
+//     overflow: auto;
+//   }
+
+//   .dashboard {
+//     .widget-container,
+//     .graph-container,
+//     .transaction-container {
+//       justify-content: center;
+//       flex-wrap: wrap;
+//     }
+//     .transaction-container {
+//       padding: 2rem;
+//       height: unset;
+//     }
+//   }
+
+//   .product-management {
+//     padding: 2rem;
+//   }
+// }
+
+// @media screen and (width<= 2000px) {
+//   .admin-container {
+//     grid-template-columns: 1fr !important;
+//   }
+// }
+
+// @media screen and (width<= 600px) {
+//   .product-management {
+//     flex-direction: column;
+//     align-items: center;
+//     padding: 0;
+//     > section {
+//       max-width: 400px;
+//     }
+//   }
+
+//   .chart-container {
+//     padding: 0;
+//     > h1 {
+//       margin: 0;
+//       text-align: center;
+//     }
+//     > section {
+//       margin: 8rem auto;
+//     }
+//   }
+
+//   .dashboard-app-container > section {
+//     .coupon-form,
+//     .stopwatch {
+//       display: flex;
+//       flex-direction: column;
+//     }
+//     .stopwatch {
+//       align-items: center;
+//     }
+//   }
+// }
+
+button{
+  &:disabled{
+    cursor: not-allowed !important;
+    background-color: var(--black-10) !important;
+    color: var(--black-40) !important;
+  }
+}
+
+
+@media (max-width:768px){
+  .admin-container{
+    >aside{
+      display: none;
+    }
+  }
+}

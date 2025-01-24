@@ -1,0 +1,48 @@
+.accordion {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    border-bottom: 1px solid #eaeaea;
+  
+    &__header {
+      display: flex;
+      justify-content: end;
+      gap: 1rem;
+      color: rgb(70,70,70);
+      align-items: center;
+      cursor: pointer;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease;
+  
+      h2 {
+        font-size: 1.25rem;
+      }
+      a{
+        color: black;
+      }
+      &:hover, a:hover {
+        color: #25d366;
+      }
+  
+
+      span{
+        display: flex;
+        align-items: center;
+      }
+    }
+  
+    &__content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      font-size: 1rem;
+    }
+  
+    &.open .accordion__content {
+      max-height:500px; /* Adjust this based on content */
+    }
+
+    // &.open span {
+    //   transform: rotate(180deg);
+    // }
+  }
+  

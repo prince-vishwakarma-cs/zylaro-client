@@ -1,0 +1,132 @@
+.productCard {
+  width: 100%;
+  max-width: 16.375rem; /* Controls max width on larger screens */
+  min-width: 12rem; /* Ensures the card won't shrink too small */
+  @include flex(column, flex-start, flex-start, 0);
+  aspect-ratio: 262 / 349;
+
+  .productImageWrapper {
+    border: 0.1px solid var(--black-40);
+    border-radius: 0.3125rem;
+    position: relative;
+    display: flex;
+    transition: all ease 0.3s;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /* Add contain logic for the image */
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures the entire image fits inside the container */
+      object-position: center; /* Centers the image within the container */
+      border-radius: 0.3125rem; /* Matches the wrapper's border-radius */
+      background-color: white; /* Optional: Adds background to fill empty areas */
+    }
+
+    > div {
+      width: 100%;
+      position: absolute;
+      padding: 1rem;
+      height: 100%;
+      @include flex(column, space-between, space-between);
+
+      > div {
+        @include flex(row, space-between, flex-start);
+
+        > .extras {
+          @include flex(column, center, stretch, 0.5rem);
+          button {
+            @include btn(0.25rem 0.5rem, white, $black); /* Scales down with viewport */
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 0.3125rem; /* Scales down well */
+          }
+          .btn2 {
+            background-color: $green;
+            color: white;
+          }
+        }
+
+        > img {
+          padding: 0.5rem;
+          background-color: white;
+          border-radius: 6.25rem;
+        }
+      }
+
+      > button {
+        @include btn(0.75rem 1.5rem, $black, white);
+        border-radius: 0.3125rem; /* Scales down well */
+        font-size: 0.875rem;
+        display: none;
+      }
+    }
+  }
+
+  .details {
+    padding: 0.3125rem;
+    @include flex(row, space-between, flex-end);
+    width: 100%;
+    font-size: 1.2rem;
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  &:hover .productImageWrapper > div > button {
+    display: block;
+  }
+
+  /* Add responsiveness for smaller screens */
+  @media (max-width: 768px) {
+    max-width: 14rem; /* Restricts the card size on tablets */
+    min-width: 12rem; /* Ensures usability on tablets */
+    // padding: 0.5rem;
+
+    .productImageWrapper {
+      > div {
+        padding: 0.75rem;
+
+        > div > img {
+          padding: 0.3rem; /* Adjust inner image padding */
+        }
+
+        > button {
+          font-size: 0.75rem; /* Resize buttons for smaller screens */
+        }
+      }
+    }
+
+    .details {
+      font-size: 1rem; /* Adjust text size */
+    }
+  }
+
+  @media (max-width: 576px) {
+    max-width: 12rem; /* Further restricts max size on mobile */
+    min-width: 12rem; /* Ensures cards are readable */
+    // padding: 0.5rem;
+
+    .productImageWrapper {
+      > div {
+        padding: 0.5rem; /* Add spacing on mobile */
+
+        > div > img {
+          padding: 0.2rem; /* Inner image adjustment */
+        }
+
+        > button {
+          display: block;
+          font-size: 0.7rem; /* Resize buttons further */
+        }
+      }
+    }
+
+    .details {
+      font-size: 0.9rem; /* Ensure readable text on mobile */
+    }
+  }
+}
