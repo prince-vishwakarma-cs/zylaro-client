@@ -100,7 +100,7 @@ const Productmanagement = () => {
       setPriceUpdate(data.product.price);
       setCategoryUpdate(data.product.category);
       setStockUpdate(data.product.stock);
-      console.log(data);
+
     }
   }, [data]);
 

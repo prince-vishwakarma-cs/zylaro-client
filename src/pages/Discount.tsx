@@ -50,11 +50,6 @@ const Discount = () => {
   const userImg =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJxA5cTf-5dh5Eusm0puHbvAhOrCRPtckzjA&usqp";
 
-console.log(data)
-  if (isError) {
-    const err = error as customError;
-    toast.error(err.data.message);
-  }
 
   useEffect(() => {
     if (data)

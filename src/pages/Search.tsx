@@ -40,7 +40,6 @@ const Search = () => {
       page,
     });
 
-  console.log(searchData);
 
   const dispatch = useDispatch();
 

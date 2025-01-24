@@ -74,7 +74,6 @@ const Customers = () => {
   };
 
   useEffect(() => {
-    console.log(data?.user);
     if (data && data.user) {
       setRows(
         data.user.map((i) => ({

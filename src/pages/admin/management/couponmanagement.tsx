@@ -54,8 +54,6 @@ const Couponmanagement = () => {
         UserId: user?._id!,
       });
   
-      console.log(`Payload sent: `, payload);
-  
       responseToast(res, navigate);
     } catch (error) {
       console.error("Error updating coupon:", error);

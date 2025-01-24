@@ -10,7 +10,6 @@ import { RootState } from "../../../redux/store";
 const PieCharts = () => {
   const { user } = useSelector((state: RootState) => state.userReducer);
 
-  console.log(user?._id);
   const { isLoading, data, isError } = usePieQuery(user?._id!);
 
   const CustomerDistribution = data?.charts.CustomerDistribution!;

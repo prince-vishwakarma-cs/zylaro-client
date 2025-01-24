@@ -10,8 +10,6 @@ import { paymentAPI } from "./api/paymentAPI";
 
 export const server = import.meta.env.VITE_SERVER;
 
-console.log(`server : ${server}`)
-
 export const store = configureStore({
   reducer: {
     [userAPI.reducerPath]: userAPI.reducer,

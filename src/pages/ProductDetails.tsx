@@ -34,7 +34,6 @@ const ProductDetails = () => {
 
   const { isLoading, isError, data } = useProductDetailsQuery(params.id!);
 
-  console.log(data)
   const reviewsResponse = useAllReviewsQuery(params.id!);
   const [carouselOpen, setCarouselOpen] = useState(false);
   const [quantity, setQuantity] = useState(1);
