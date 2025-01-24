@@ -8,7 +8,7 @@
   > section {
     padding: 0 12vw 3vw 12vw;
     width: 100%;
-    height: calc(100vh - 65.4px);
+    // height: calc(100vh - 65.4px);
     overflow: hidden;
 
     img {
@@ -90,14 +90,21 @@
         @include flex(row, flex-start, center, 0.5rem);
         border-bottom: 1px solid var(--black-100);
         padding: 2px 0;
+
+        a{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
       }
 
       h1,
       h2,
-      p {
+      p,svg {
         font-size: calc(1rem + 1vw);
         line-height: 1.3em;
       }
+
     }
 
     .show1-content {
@@ -152,7 +159,6 @@
     > div {
       color: var(--black-100);
       background-color: var(--black-10);
-      border-radius: 1rem;
       padding: 2rem;
       @include flex(column, center, flex-start, 0.5rem);
       flex: 1;
@@ -191,7 +197,7 @@
     }
 
     .heading {
-      padding: 1vw 12vw;
+      padding: 1rem;
       width: 100%; // Change from 100vw to 100%
     }
     

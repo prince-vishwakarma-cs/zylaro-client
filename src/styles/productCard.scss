@@ -6,8 +6,6 @@
   aspect-ratio: 262 / 349;
 
   .productImageWrapper {
-    border: 0.1px solid var(--black-40);
-    border-radius: 0.3125rem;
     position: relative;
     display: flex;
     transition: all ease 0.3s;
@@ -21,7 +19,6 @@
       height: 100%;
       object-fit: cover; /* Ensures the entire image fits inside the container */
       object-position: center; /* Centers the image within the container */
-      border-radius: 0.3125rem; /* Matches the wrapper's border-radius */
       background-color: white; /* Optional: Adds background to fill empty areas */
     }
 
@@ -41,7 +38,6 @@
             @include btn(0.25rem 0.5rem, white, $black); /* Scales down with viewport */
             font-size: 0.875rem;
             font-weight: 600;
-            border-radius: 0.3125rem; /* Scales down well */
           }
           .btn2 {
             background-color: $green;
@@ -53,12 +49,12 @@
           padding: 0.5rem;
           background-color: white;
           border-radius: 6.25rem;
+          display: none
         }
       }
 
       > button {
         @include btn(0.75rem 1.5rem, $black, white);
-        border-radius: 0.3125rem; /* Scales down well */
         font-size: 0.875rem;
         display: none;
       }

@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import call from "../assets/call.svg";
 import shipp from "../assets/fast delivery.svg";
-import hero from "../assets/images/hero_image.png";
 import show1 from "../assets/images/show1.png";
 import show2 from "../assets/images/show2.png";
 import show3 from "../assets/images/show3.png";
@@ -16,6 +15,7 @@ import { Skeleton } from "../components/Loader";
 import { useLatestProductsQuery } from "../redux/api/productAPI";
 import { addToCart } from "../redux/reducer/cartSlice";
 import { CartItem } from "../types/types";
+import Carousel from "./Carousel";
 
 const Home = () => {
   const { data, isLoading, isError } = useLatestProductsQuery("");
@@ -33,7 +33,9 @@ const Home = () => {
   return (
     <div className="home">
       <section>
-        <img src={hero} alt="" />
+        {/* Carousel
+        <img src={hero} alt="" /> */}
+        <Carousel/>
       </section>
       <div className="heading">
         <div className="head1">
@@ -54,9 +56,9 @@ const Home = () => {
           <div className="show1-content">
             <h1>Living room</h1>
             <div>
-            <Link to="/search?category=living-room">
-          Shop now <ArrowRight />
-        </Link>
+              <Link to="/search?category=living-room">
+                <div>Shop now</div> <ArrowRight />
+              </Link>
             </div>
           </div>
         </div>
@@ -66,7 +68,9 @@ const Home = () => {
             <div className="show2-content">
               <h1>Bedroom</h1>
               <div>
-                Shop now <ArrowRight />
+                <Link to="/search?category=bedroom">
+                  <div>Shop now</div> <ArrowRight />
+                </Link>
               </div>
             </div>
           </div>
@@ -75,7 +79,9 @@ const Home = () => {
             <div className="show3-content">
               <h1>Kitchen</h1>
               <div>
-                Shop now <ArrowRight />
+                <Link to="/search?category=kitchen">
+                  <div>Shop now</div> <ArrowRight />
+                </Link>
               </div>
             </div>
           </div>
