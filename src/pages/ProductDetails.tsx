@@ -10,10 +10,7 @@ import {
 } from "react-icons/fa6";
 import { FiEdit } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useParams } from "react-router-dom";
-// import {
-//   useDeleteReviewMutation,
-// } from "../redux/api/productAPI";
+import { Link, Navigate, useParams } from "react-router-dom";
 import { RootState } from "../redux/store";
 import { CartItem, Review } from "../types/types";
 import { responseToast } from "../utils/features";
@@ -65,6 +62,8 @@ const ProductDetails = () => {
     reviewDialogRef.current?.showModal();
   };
 
+  console.log(data);
+
   const {
     Ratings: RatingsEditable,
     rating,
@@ -106,7 +105,7 @@ const ProductDetails = () => {
 
   const handleDeleteReview = async (reviewId: string) => {
     const res = await deleteReview({ reviewId, userId: user?._id! });
-    responseToast(res,null);
+    responseToast(res, null);
   };
 
   return (
@@ -133,17 +132,20 @@ const ProductDetails = () => {
               )}
             </section>
             <section>
-              <code>{data?.product?.category}</code>
+              <Link to={`/search?category=${data?.product?.category}`}>
+                <span>{data?.product?.category}</span>
+              </Link>
               <h1>{data?.product?.name}</h1>
+              <p>{data?.product?.description}</p>
               <div
                 style={{ display: "flex", gap: "1rem", alignItems: "center" }}
               >
-                <RatingsComponent value={data?.product?.ratings || 0} />(
-                {data?.product?.numReviews} reviews)
+                <RatingsComponent value={data?.product?.ratings || 0} />
+                {data?.product?.numReviews} reviews
               </div>
               <h3>₹{data?.product?.price}</h3>
               <article>
-                <div>
+                <div className="product-cart">
                   <button onClick={decrement}>-</button>
                   <span>{quantity}</span>
                   <button onClick={increment}>+</button>
@@ -163,8 +165,6 @@ const ProductDetails = () => {
                   Add To Cart
                 </button>
               </article>
-
-              <p>{data?.product?.description}</p>
             </section>
           </main>
         </>
@@ -203,7 +203,6 @@ const ProductDetails = () => {
             display: "flex",
             gap: "2rem",
             overflowX: "auto",
-            padding: "2rem",
           }}
         >
           {reviewsResponse.isLoading ? (
@@ -237,20 +236,28 @@ const ReviewCard = ({
   review: Review;
   handleDeleteReview: (reviewId: string) => void;
 }) => (
-  <div className="review">
-    <RatingsComponent value={review.rating} />
-    <p>{review.comment}</p>
-    <div>
-      <img src={review.user.photo} alt="User" />
-      <small>{review.user.name}</small>
-    </div>
+  <div className="review-card">
+    {/* Delete button - Positioned at the top-right corner */}
     {userId === review.user._id && (
       <button onClick={() => handleDeleteReview(review._id)}>
         <FaTrash />
       </button>
     )}
+
+    {/* Review content container */}
+    <div className="review-content">
+      <div>
+        <img src={review.user.photo} alt="User" />
+      </div>
+      <div className="review-text">
+      <RatingsComponent value={review.rating} />
+      <p>{review.comment}</p>
+      <small>{review.user.name}</small>
+      </div>
+    </div>
   </div>
 );
+
 
 const ProductLoader = () => {
   return (

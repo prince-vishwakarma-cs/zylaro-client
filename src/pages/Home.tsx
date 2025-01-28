@@ -1,3 +1,4 @@
+
 import { ArrowRight } from "react-feather";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
@@ -8,7 +9,6 @@ import show1 from "../assets/images/show1.png";
 import show2 from "../assets/images/show2.png";
 import show3 from "../assets/images/show3.png";
 import lock from "../assets/lock 01.svg";
-import logo2 from "../assets/logo2.svg";
 import money from "../assets/money.svg";
 import Card from "../components/Card";
 import { Skeleton } from "../components/Loader";
@@ -16,6 +16,7 @@ import { useLatestProductsQuery } from "../redux/api/productAPI";
 import { addToCart } from "../redux/reducer/cartSlice";
 import { CartItem } from "../types/types";
 import Carousel from "./Carousel";
+import { Facebook,Twitter,Instagram } from "react-feather";
 
 const Home = () => {
   const { data, isLoading, isError } = useLatestProductsQuery("");
@@ -35,7 +36,7 @@ const Home = () => {
       <section>
         {/* Carousel
         <img src={hero} alt="" /> */}
-        <Carousel/>
+        <Carousel />
       </section>
       <div className="heading">
         <div className="head1">
@@ -43,9 +44,9 @@ const Home = () => {
           <br /> Simply Better<span className="lightgray">.</span>
         </div>
         <div className="head2">
-          3legant{" "}
+          Zylaro{" "}
           <span className="lightgray">
-            is a gift & decorations store based in HCMC, Vietnam. <br />
+            is a Home decor marketplace based in India. <br />
             Est since 2019.{" "}
           </span>
         </div>
@@ -139,12 +140,71 @@ const Home = () => {
           <span>Phone and email support</span>
         </div>
       </div>
-      <footer>
-        <div className="foot1">
-          <img src={logo2} alt="" />
+      <footer className="footer">
+        <div className="footer-container">
+          <div className="footer-about">
+            <h3>
+              <span className="green">Z</span>ylaro.
+            </h3>
+            <p>
+              Zylaro is your go-to marketplace for elegant and unique home
+              decor. Established in 2019, we are committed to providing premium
+              products to elevate your living spaces.
+            </p>
+          </div>
+          <div className="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About Us</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
+              </li>
+              <li>
+                <Link to="/search">Shop</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="footer-contact">
+            <h3>Contact Us</h3>
+            <p>Email: support@zylaro.com</p>
+            <p>Phone: +91-123-456-7890</p>
+            <p>Address: 123 Zylaro Street, New Delhi, India</p>
+          </div>
+
+          <div className="footer-social">
+            <h3>Follow Us</h3>
+            <div className="social-icons">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Facebook className="social-icon" />
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Twitter className="social-icon" />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Instagram className="social-icon" />
+              </a>
+            </div>
+          </div>
         </div>
-        <div className="foot2">
-          Copyright © 2023 3legant. All rights reserved
+        <div className="footer-bottom">
+          <p>Copyright © 2023 Zylaro. All rights reserved.</p>
         </div>
       </footer>
     </div>
