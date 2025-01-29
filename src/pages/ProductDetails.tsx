@@ -1,28 +1,26 @@
-import { CarouselButtonType, MyntraCarousel, Slider, useRating } from "6pp";
+import { CarouselButtonType, Slider, useRating } from "6pp";
 import { useRef, useState } from "react";
+import { Edit3, Trash, X } from "react-feather";
 import toast from "react-hot-toast";
-import { FaTrash } from "react-icons/fa";
 import {
   FaArrowLeftLong,
   FaArrowRightLong,
   FaRegStar,
   FaStar,
 } from "react-icons/fa6";
-import { FiEdit } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useParams } from "react-router-dom";
-import { RootState } from "../redux/store";
-import { CartItem, Review } from "../types/types";
-import { responseToast } from "../utils/features";
-import { addToCart } from "../redux/reducer/cartSlice";
+import RatingsComponent from "../components/Ratings";
 import {
   useAllReviewsQuery,
   useDeleteReviewMutation,
   useNewReviewMutation,
   useProductDetailsQuery,
 } from "../redux/api/productAPI";
-import RatingsComponent from "../components/Ratings";
-import { Edit3, Trash, X } from "react-feather";
+import { addToCart } from "../redux/reducer/cartSlice";
+import { RootState } from "../redux/store";
+import { CartItem, Review } from "../types/types";
+import { responseToast } from "../utils/features";
 
 const ProductDetails = () => {
   const params = useParams();
@@ -33,7 +31,6 @@ const ProductDetails = () => {
   const { isLoading, isError, data } = useProductDetailsQuery(params.id!);
 
   const reviewsResponse = useAllReviewsQuery(params.id!);
-  const [carouselOpen, setCarouselOpen] = useState(false);
   const [quantity, setQuantity] = useState(1);
 
   const [reviewComment, setReviewComment] = useState("");
@@ -120,7 +117,7 @@ const ProductDetails = () => {
               <Slider
                 showThumbnails
                 showNav={false}
-                onClick={() => setCarouselOpen(true)}
+                onClick={() => {}}
                 images={data?.product?.photos.map((i) => i.url) || []}
               />
             </section>
@@ -315,15 +312,5 @@ const Skeleton = ({
   );
 };
 
-const NextButton: CarouselButtonType = ({ onClick }) => (
-  <button onClick={onClick} className="carousel-btn">
-    <FaArrowRightLong />
-  </button>
-);
-const PrevButton: CarouselButtonType = ({ onClick }) => (
-  <button onClick={onClick} className="carousel-btn">
-    <FaArrowLeftLong />
-  </button>
-);
 
 export default ProductDetails;
