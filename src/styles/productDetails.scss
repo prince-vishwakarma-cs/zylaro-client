@@ -1,7 +1,7 @@
 .product-details {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
 
   // Main container styles
   main {
@@ -72,22 +72,35 @@
     }
   }
 
-  // Sticky Add to Cart Button
-
-
   // Review Dialog Styles
   .review-dialog {
-    padding: 2rem;
-    max-width: 500px;
-    width: 100%;
-    margin: 0 auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width:500px;
+      background: white;
+      padding: 2rem;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+      border: none;
+   
+    
+    .review-dialog::backdrop {
+      background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    }
+
+    >div{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
 
     button {
       background: transparent;
       border: none;
-      color: #888;
+      color: $black;
       font-size: 1.5rem;
       cursor: pointer;
       transition: color 0.3s;
@@ -99,7 +112,6 @@
 
     h2 {
       font-size: 1.8rem;
-      margin-bottom: 1rem;
     }
 
     form {
@@ -117,16 +129,13 @@
       }
 
       button {
-        background: #007bff;
+        background: $black;
         color: white;
         padding: 0.75rem 2rem;
         border: none;
-        border-radius: 4px;
         cursor: pointer;
 
-        &:hover {
-          background: #0056b3;
-        }
+      
 
         &:disabled {
           background: #cccccc;
@@ -151,15 +160,18 @@
       }
 
       button {
-        background: #007bff;
-        color: white;
-        padding: 0.5rem 1rem;
+        color:$black;
+        padding: 0.5rem ;
         border: none;
-        border-radius: 4px;
+        background-color: transparent;
         cursor: pointer;
 
+        >svg{
+          font-size: 1rem;
+        }
+
         &:hover {
-          background: #0056b3;
+          color: rgba(0, 0, 0, 0.789);
         }
       }
     }
@@ -241,4 +253,10 @@
             color: $colorl;
         }
     }
+}
+
+@media (max-width: 576px) {
+  .review-dialog{
+    width: 80vw;
+  }
 }

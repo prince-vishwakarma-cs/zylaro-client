@@ -29,7 +29,6 @@ const Search = () => {
   const [category, setCategory] = useState(searchQuery.get("category") || "");
   const [page, setPage] = useState(1);
   const isPreviousPage = page > 1;
-  const isNextPage = page < 4;
 
   const { isLoading: productsLoading, data: searchData ,isError:productIsError,error:productError} =
     useSearchProductsQuery({
@@ -40,6 +39,8 @@ const Search = () => {
       page,
     });
 
+
+    const isNextPage = page < (searchData?.totalPages ?? 1);
 
   const dispatch = useDispatch();
 

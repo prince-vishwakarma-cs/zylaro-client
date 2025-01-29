@@ -18,6 +18,15 @@ import { CartItem } from "../types/types";
 import Carousel from "./Carousel";
 import { Facebook,Twitter,Instagram } from "react-feather";
 
+const carouselImages = [
+  "https://res.cloudinary.com/dtjfmg11y/image/upload/v1737743951/hero_mogjy2.jpg",
+  "https://res.cloudinary.com/dtjfmg11y/image/upload/v1737743950/hero5_tljywh.jpg",
+  "https://res.cloudinary.com/dtjfmg11y/image/upload/v1737743950/hero3_lo57jf.jpg",
+  "https://res.cloudinary.com/dtjfmg11y/image/upload/v1737743955/hero6_iskgme.jpg",
+  "https://res.cloudinary.com/dtjfmg11y/image/upload/v1737743957/hero2_ysjift.jpg",
+  "https://res.cloudinary.com/dtjfmg11y/image/upload/v1737743960/hero4_rrton3.jpg",
+];
+
 const Home = () => {
   const { data, isLoading, isError } = useLatestProductsQuery("");
 
@@ -36,7 +45,7 @@ const Home = () => {
       <section>
         {/* Carousel
         <img src={hero} alt="" /> */}
-        <Carousel />
+        <Carousel images={carouselImages} />
       </section>
       <div className="heading">
         <div className="head1">

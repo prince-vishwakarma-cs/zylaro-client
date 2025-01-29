@@ -9,8 +9,8 @@
   border-bottom: 0.05rem solid var(--black-40);
 
   &.open {
-    height: 100vh;
-    max-height: 100vh; // A large value to ensure it opens fully
+    height: 100dvh;
+    max-height: 100dvh; // A large value to ensure it opens fully
     overflow-y: auto;
   }
 
@@ -179,8 +179,14 @@
   }
 }
 
-@media (max-width:768px){
-  .drawer-icon{
-    display: block;
+@media (min-width: 769px) {
+  .drawer-icon {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .drawer-icon {
+    display: block !important;
   }
 }

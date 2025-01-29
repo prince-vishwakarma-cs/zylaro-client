@@ -1,7 +1,7 @@
 .search-page {
   padding: 1rem;
   @include flex(row, flex-start, stretch, 2rem);
-  height: calc( 100vh - 3.8rem);
+  height: calc( 100dvh - 3.8rem);
   position: relative;
   background-color: var(--white-100);
   color: var(--black-100);
@@ -60,7 +60,6 @@
   }
   > main {
     width: 100%;
-    padding: 0 0.5rem;
     height: 100%;
     overflow: hidden;
 

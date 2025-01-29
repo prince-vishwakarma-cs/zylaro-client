@@ -22,6 +22,7 @@ import {
   useProductDetailsQuery,
 } from "../redux/api/productAPI";
 import RatingsComponent from "../components/Ratings";
+import { Edit3, Trash, X } from "react-feather";
 
 const ProductDetails = () => {
   const params = useParams();
@@ -122,14 +123,6 @@ const ProductDetails = () => {
                 onClick={() => setCarouselOpen(true)}
                 images={data?.product?.photos.map((i) => i.url) || []}
               />
-              {carouselOpen && (
-                <MyntraCarousel
-                  NextButton={NextButton}
-                  PrevButton={PrevButton}
-                  setIsOpen={setCarouselOpen}
-                  images={data?.product?.photos.map((i) => i.url) || []}
-                />
-              )}
             </section>
             <section>
               <Link to={`/search?category=${data?.product?.category}`}>
@@ -171,8 +164,11 @@ const ProductDetails = () => {
       )}
 
       <dialog ref={reviewDialogRef} className="review-dialog">
-        <button onClick={reviewCloseHandler}>X</button>
+        <div>
         <h2>Write a Review</h2>
+        <button onClick={reviewCloseHandler}><X/></button>
+        </div>
+        
         <form onSubmit={submitReview}>
           <textarea
             value={reviewComment}
@@ -194,7 +190,7 @@ const ProductDetails = () => {
             ? null
             : user && (
                 <button onClick={showDialog}>
-                  <FiEdit />
+                  <Edit3 />
                 </button>
               )}
         </article>
@@ -240,7 +236,7 @@ const ReviewCard = ({
     {/* Delete button - Positioned at the top-right corner */}
     {userId === review.user._id && (
       <button onClick={() => handleDeleteReview(review._id)}>
-        <FaTrash />
+        <Trash />
       </button>
     )}
 
