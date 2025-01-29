@@ -1,12 +1,10 @@
-import { CarouselButtonType, Slider, useRating } from "6pp";
+import { Slider, useRating } from "6pp";
 import { useRef, useState } from "react";
 import { Edit3, Trash, X } from "react-feather";
 import toast from "react-hot-toast";
 import {
-  FaArrowLeftLong,
-  FaArrowRightLong,
   FaRegStar,
-  FaStar,
+  FaStar
 } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useParams } from "react-router-dom";
